@@ -27,6 +27,26 @@ public class PeopleService {
         return peopleRepository.findById(id).orElse(null);
     }
 
+    public List<Person> findByName(String name) {
+        return peopleRepository.findByName(name);
+    }
+
+    public List<Person> findByNameOrderByAge(String name) {
+        return peopleRepository.findByNameOrderByAge(name);
+    }
+
+    public List<Person> findByNameStartingWith(String startingWith) {
+        return peopleRepository.findByNameStartingWith(startingWith);
+    }
+
+    public List<Person> findByNameOrEmail(String name, String email) {
+        return peopleRepository.findByNameOrEmail(name, email);
+    }
+
+    public void test() {
+        System.out.println("testing while in transaction");
+    }
+
     @Transactional
     public void save(Person person) {
         peopleRepository.save(person);

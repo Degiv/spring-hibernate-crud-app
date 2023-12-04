@@ -23,6 +23,7 @@ public class PeopleController {
 
     @GetMapping()
     public String index(Model model) {
+        peopleService.test();
         model.addAttribute("people", peopleService.findAll());
         return "people/index";
     }
